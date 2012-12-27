@@ -77,6 +77,9 @@ folder
 * G129 => 2.2
 * email concerning OpenDirectory from MdG
 --------------------------------  CHANGELOG  -----------------------------------
+2.2.1
+ * 
+
 2.1.13
  * Code improvement for PSR compliance
  * jQueryUI updated to v1.9

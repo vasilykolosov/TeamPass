@@ -298,7 +298,7 @@ if (!isset($_GET['step']) && !isset($_POST['step'])) {
 
     if (!isset($_SESSION['sk_path']) || !file_exists($_SESSION['sk_path'])) {
         echo '
-        <h3>IMPORTANT: Since version 2.1.13, saltkey is stored in an independent file.</h3>
+        <h3>IMPORTANT: Since version 2.2.1, saltkey is stored in an independent file.</h3>
         <label for="sk_path" style="width:300px;">Absolute path to SaltKey :
             <img src="../includes/images/information-white.png" alt="" title="The SaltKey is stored in a file called sk.php. But for security reasons, this file should be stored in a folder outside the www folder of your server. So please, indicate here the path to this folder. <br> If this field remains empty, this file will be stored in folder \'/includes\'.">
         </label><input type="text" id="sk_path" name="sk_path" value="" size="75" /><br />
@@ -363,7 +363,7 @@ echo '
 echo '
     <div id="footer">
         <div style="width:500px;">
-            '.$k['tool_name'].' '.$k['version'].' &#169; copyright 2009-2012
+            '.$k['tool_name'].' '.$k['version'].' &#169; copyright 2009-2013
         </div>
         <div style="float:right;margin-top:-15px;">
         </div>

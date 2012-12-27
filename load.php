@@ -3,10 +3,10 @@
  *
  * @file          load.php
  * @author        Nils Laumaillé
- * @version       2.1.13
- * @copyright     (c) 2009-2012 Nils Laumaillé
+ * @version       2.2.1
+ * @copyright     (c) 2009-2013 Nils Laumaillé
  * @licensing     GNU AFFERO GPL 3.0
- * @link		http://www.teampass.net
+ * @link		  http://www.teampass.net
  *
  * This library is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -19,7 +19,7 @@ if (!isset($_SESSION['CPM']) || $_SESSION['CPM'] != 1) {
 
 // Common elements
 $htmlHeaders = '
-        <link rel="stylesheet" href="includes/css/passman.css" type="text/css" />
+        <link rel="stylesheet" href="includes/css/teampass.css" type="text/css" />
         <link rel="stylesheet" href="includes/js/jquery-ui/css/'.$k['jquery-ui-theme'].'/jquery-ui-'.$k['jquery-ui-version'].'.custom.min.css" type="text/css" />
 
         <script type="text/javascript" src="includes/js/functions.js"></script>

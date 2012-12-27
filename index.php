@@ -9,8 +9,8 @@ session_start();
  *
  * @file          index.php
  * @author        Nils Laumaillé
- * @version       2.1.13
- * @copyright     (c) 2009-2012 Nils Laumaillé
+ * @version       2.2.1
+ * @copyright     (c) 2009-2013 Nils Laumaillé
  * @licensing     GNU AFFERO GPL 3.0
  * @link		http://www.teampass.net
  *
@@ -98,15 +98,25 @@ echo $htmlHeaders;
 
 /* HEADER */
 echo '
-    <div id="top">
-        <div id="logo"><img src="includes/images/canevas/logo.png" alt="" /></div>';
+    <div id="top1">
+        <div class="top1_1">
+            <img src="includes/images/canevas/logo.png" alt="" />
+        </div>
+        <div class="top1_2">
+            <input type="text" id="main_search" class="text ui-widget-content"><button class="button_big" onclick="" title="'.$txt['item_menu_find'].'">
+             <img src="includes/images/binocular.png" alt="Search" /></button>
+        </div>
+        <div class="top1_3">
+            <img src="includes/images/user-black.png" /> <b>'.$_SESSION['login'].'</b> ['.$_SESSION['user_privilege'].']<br />
+            <img src="includes/images/alarm-clock.png" style="margin-left:30px;" /> '.$txt['index_expiration_in'].' <span style="display:inline; width:70px;" id="countdown"></span>
+        </div>
+    </div>
+    <div id="top2">
+        <div class="top2_1">&nbsp;</div>';
 // Display menu
 if (isset($_SESSION['login'])) {
     echo '
-        <div id="menu_top">
-            <div style="font-size:12px; margin-left:65px; margin-top:-5px; width:100%; color:white;">
-                <img src="includes/images/user-black.png" /> <b>'.$_SESSION['login'].'</b> ['.$_SESSION['user_privilege'].']<img src="includes/images/alarm-clock.png" style="margin-left:30px;" /> '.$txt['index_expiration_in'].' <div style="display:inline;" id="countdown"></div>
-            </div>
+        <div id="top2_2">
             <div style="margin-left:65px; margin-top:3px;width:100%;" id="main_menu">
                 <button title="'.$txt['home'].'" onclick="MenuAction(\'\');">
                     <img src="includes/images/home.png" alt="" />
@@ -506,13 +516,14 @@ echo '
 /* DON'T MODIFY THE FOOTER ... MANY THANKS TO YOU */
 echo '
     <div id="footer">
-        <div style="float:left;width:32%;">
-            <a href="http://www.teampass.net/about/" target="_blank" style="color:#F0F0F0;">'.$k['tool_name'].'&nbsp;'.$k['version'].'&nbsp;&copy;&nbsp;copyright 2009-2012</a>
+        <div style="float:left;width:33%;">
+            &nbsp;
         </div>
-        <div style="float:left;width:32%;text-align:center;">
+        <div style="float:left;width:33%;text-align:center;">
             ', (isset($_SESSION['user_id']) && !empty($_SESSION['user_id'])) ? $_SESSION['nb_users_online']."&nbsp;".$txt['users_online'] : "", '
         </div>
         <div style="float:right;margin-top:5px;text-align:right;">
+            <a href="http://www.teampass.net/about/" target="_blank" style="color:#F0F0F0;">'.$k['tool_name'].'&nbsp;'.$k['version'].'&nbsp;&copy;&nbsp;copyright 2009-2013</a>
         </div>
     </div>';
 // PAGE LOADING

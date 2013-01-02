@@ -29,7 +29,9 @@ $htmlHeaders = '
 
         <script language="JavaScript" type="text/javascript" src="includes/js/simplePassMeter/simplePassMeter.js"></script>
 
-        <script type="text/javascript" src="includes/libraries/Encryption/Crypt/aes.min.js"></script>';
+        <script type="text/javascript" src="includes/libraries/Encryption/Crypt/aes.min.js"></script>
+        
+        <script type="text/javascript" src="includes/js/menu/menu.js"></script>';
 // For ITEMS page, load specific CSS files for treeview
 if (isset($_GET['page']) && $_GET['page'] == "items") {
     $htmlHeaders .= '
@@ -309,9 +311,60 @@ $htmlHeaders .= '
                 }
             }
         });
+                        
+                        function select(event, ui) {
+			$("<div/>").text("Selected: " + ui.item.text()).appendTo("#log");
+			if (ui.item.text() == "Quit") {
+				$(this).menubar("destroy");
+			}
+		}
 
         //PREPARE MAIN MENU
-        $("#main_menu button, #personal_menu_actions button").button();
+        //$("button").button();
+                        
+        $( "#rerun" )
+            .button()
+            .click(function() {
+                alert( "Running the last action" );
+            })
+            .next()
+                .button({
+                    text: false,
+                    icons: {
+                        primary: "ui-icon-triangle-1-s"
+                    }
+                })
+                .click(function() {
+                    var menu = $( this ).parent().next().show().position({
+                        my: "left top",
+                        at: "left bottom",
+                        of: this
+                    });
+                    $( document ).one( "click", function() {
+                        menu.hide();
+                    });
+                    return false;
+                })
+                    .parent()
+                    .buttonset()
+                    .next()
+                        .hide()
+                        .menu();
+ 
+                    
+                        
+                        
+                        
+        $("#menu > li").bind("mouseover", jsddm_open);
+	    $("#menu > li").bind("mouseout",  jsddm_timer);
+                        
+        $(".top1_2").position({
+            my: "right",
+            at: "center",
+            of: "#top1"
+        });
+                        
+
 
         //PREPARE LANGUGAGE DROPDOWN
             $(".dropdown dt").click(function() {

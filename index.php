@@ -103,8 +103,8 @@ echo '
             <img src="includes/images/canevas/logo.png" alt="" />
         </div>
         <div class="top1_2">
-            <input type="text" id="main_search" class="text ui-widget-content"><button class="button_big" onclick="" title="'.$txt['item_menu_find'].'">
-             <img src="includes/images/binocular.png" alt="Search" /></button>
+            <input type="text" id="main_search" class="text ui-widget-content">
+            <button class="button_menu button_search" id="button_search" onclick=""><img src="includes/images/binocular.png" alt="" /></button>
         </div>
         <div class="top1_3">
             <img src="includes/images/user-black.png" /> <b>'.$_SESSION['login'].'</b> ['.$_SESSION['user_privilege'].']<br />
@@ -117,6 +117,40 @@ echo '
 if (isset($_SESSION['login'])) {
     echo '
         <div id="top2_2">
+<ul id="menu">
+	<li><a href="#">JavaScript</a>
+		<ul>
+			<li><a href="#">Drop Down Menu</a></li>
+			<li><a href="#">jQuery Plugin</a></li>
+			<li><a href="#">Ajax Navigation</a></li>
+		</ul>
+	</li>
+	<li><a href="#">Effect</a>
+		<ul>
+			<li><a href="#">Slide Effect</a></li>
+			<li><a href="#">Fade Effect</a></li>
+			<li><a href="#">Opacity Mode</a></li>
+			<li><a href="#">Drop Shadow</a></li>
+			<li><a href="#">Semitransparent</a></li>
+		</ul>
+	</li>
+	<li><a href="#">Navigation</a></li>
+	<li><a href="#">HTML/CSS</a></li>
+	<li><a href="#" title="'.$txt['disconnect'].'" onclick="MenuAction(\'deconnexion\');"><img src="includes/images/door-open.png" alt="" /></a></li>
+</ul>
+        
+<div>
+    <div id="menu_but">
+        <button id="rerun">Run last action</button>
+        <button id="select">&nbsp;</button>
+    </div>
+    <ul id="menu_but_sub>
+        <li><a href="#">Open...</a></li>
+        <li><a href="#">Save</a></li>
+        <li><a href="#">Delete</a></li>
+    </ul>
+</div>
+            
             <div style="margin-left:65px; margin-top:3px;width:100%;" id="main_menu">
                 <button title="'.$txt['home'].'" onclick="MenuAction(\'\');">
                     <img src="includes/images/home.png" alt="" />
@@ -129,8 +163,8 @@ if (isset($_SESSION['login'])) {
                 <button title="'.$txt['find'].'" onclick="MenuAction(\'find\');"', (isset($_SESSION['nb_folders']) && $_SESSION['nb_folders'] == 0) || (isset($_SESSION['nb_roles']) && $_SESSION['nb_roles'] == 0) ? ' disabled="disabled"' : '', '>
                     <img src="includes/images/binocular.png" alt="" />
                 </button>
-                <button title="'.$txt['last_items_icon_title'].'" onclick="OpenDiv(\'div_last_items\')">
-                    <img src="includes/images/tag_blue.png" alt="" />
+                <button title="'.$txt['disconnect'].'" onclick="OpenDiv(\'div_last_items\')">
+                    <img src="includes/images/door-open.png" alt="" />
                 </button>';
     }
     // Favourites menu

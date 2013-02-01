@@ -1660,6 +1660,21 @@ $(function() {
     $(".items_tree").height(window_height-160);
     $("#jstree").height(window_height-185);
 
+    //  Expand all items on load
+    //  http://stackoverflow.com/questions/11018242/how-do-i-open-all-nodes-in-jquery-jstree
+    $("#jstree")
+        // call `.jstree` with the options object
+        .jstree({
+
+            "plugins" : ["themes", "html_data","ui","crrm","sort"]
+        }) 
+
+        .bind("loaded.jstree", function (event, data) {
+            // you get two params - event & data - check the core docs for a detailed description
+            $(this).jstree("open_all");
+        })      
+    });
+
     //warning if screen height too short
     if (parseInt(window_height-440) <= 50) {
         $("#div_dialog_message_text").html("<?php echo addslashes($txt['warning_screen_height']);?>");
